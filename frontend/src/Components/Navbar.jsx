@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const [visibl, setVisible] = useState(false);
   return (
     <div className="flex items-center justify-between py-5 font-medium">
       <img src={assets.logo} alt="" />
@@ -26,7 +27,7 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center gap-6">
         <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
-        <div className="group relative">
+        <div className="group relative w-5">
           <img
             src={assets.profile_icon}
             className="w-5 cursor-pointer"
@@ -46,6 +47,57 @@ const Navbar = () => {
             10
           </p>
         </Link>
+        <img
+          onClick={() => {
+            setVisible(true);
+          }}
+          src={assets.menu_icon}
+          alt=""
+          className="w-5 cursor-pointer sm:hidden"
+        />
+      </div>
+      <div
+        className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${
+          visibl ? "w-full" : "w-0"
+        } `}
+      >
+        <div className="flex flex-col text-gray-600">
+          <div
+            className="flex items-center gap-4 p-3 cursor-pointer"
+            onClick={() => setVisible(false)}
+          >
+            <img className="h4 rotate-180" src={assets.dropdown_icon} alt="" />
+            <p>Back</p>
+          </div>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/"
+            className="py-2 pl-6 border-b"
+          >
+            HOME
+          </NavLink>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/collection"
+            className="py-2 pl-6 border-b"
+          >
+            COLLECTION
+          </NavLink>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/about"
+            className="py-2 pl-6 border-b"
+          >
+            ABOUT
+          </NavLink>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/contact"
+            className="py-2 pl-6 border-b"
+          >
+            CONTACT
+          </NavLink>
+        </div>
       </div>
     </div>
   );
