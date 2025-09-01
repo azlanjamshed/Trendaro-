@@ -6,7 +6,11 @@ const Navbar = () => {
   const [visibl, setVisible] = useState(false);
   return (
     <div className="flex items-center justify-between py-5 font-medium">
-      <img src={assets.logo} alt="" />
+      <Link to={"/"}>
+        {" "}
+        <img src={assets.logo} alt="" />
+      </Link>
+
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
           <p>HOME</p>
@@ -27,7 +31,7 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center gap-6">
         <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
-        <div className="group relative w-5">
+        <div className="group relative ">
           <img
             src={assets.profile_icon}
             className="w-5 cursor-pointer"
