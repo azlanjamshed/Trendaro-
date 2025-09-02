@@ -31,7 +31,7 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center gap-6">
         <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
-        <div className="group relative ">
+        <div className="group relative min-w-5 ">
           <img
             src={assets.profile_icon}
             className="w-5 cursor-pointer"
